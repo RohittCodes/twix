@@ -29,7 +29,7 @@ export default function RootLayout({
           disableTransitionOnChange={false}
         >
           <CopilotKit url="/api/copilotkit/openai">
-            <CopilotSidebar
+          <CopilotSidebar
               labels={{
                 initial:
                   'Welcome to Twix Copilot! How can I help you today?',

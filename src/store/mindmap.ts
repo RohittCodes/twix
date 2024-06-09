@@ -201,7 +201,7 @@ export const useMindmapSlice = (set: any, get: any) => {
         })
         .filter((edge: Edge | null) => edge !== null) as Edge[];
 
-      console.log('addMindmapNodesFromCopilot', nodes, newNodes, newEdges);
+      // console.log('addMindmapNodesFromCopilot', nodes, newNodes, newEdges);
 
       // add new nodes to the map by timeout
       const updateNodes = [...get().mindmapNodes, ...newNodes];

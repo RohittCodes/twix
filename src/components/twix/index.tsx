@@ -91,6 +91,39 @@ const Mindmap = ({ isFullScreen }: MindmapProps) => {
     updateNodeData,
     addNodesFromCopilot,
   } = useStore(selector, shallow);
+
+  // console.log(currentFile.data);
+
+  const exportData = currentFile?.data;
+
+  const handleExport = () => {
+    const element = document.createElement('a');
+    const parsedData = JSON.parse(exportData);
+    const file = new Blob([JSON.stringify(parsedData)], { type: 'text/plain' });
+    element.href = URL.createObjectURL(file);
+    element.download = 'twix.json';
+    document.body.appendChild(element); // Required for this to work in FireFox
+    element.click();
+  }
+
+  // take an input file from the user and use zustand to setData to the local storage
+  // Store the data in json format and stringify it then use setData to set the data
+  // const handleImport = () => {
+  //   const element = document.createElement('input');
+  //   element.type = 'file';
+  //   element.accept = '.json';
+  //   element.onchange = (e: any) => {
+  //     const file = e.target.files[0];
+  //     const reader = new FileReader();
+  //     reader.onload = (e: any) => {
+  //       const fileData = JSON.parse(e.target.result);
+  //       setData(fileData.nodes, fileData.edges);
+  //     };
+  //     reader.readAsText(file);
+  //   };
+  //   element.click();
+  // }
+
   const connectingNodeId = useRef<string | null>(null);
   const [rfInstance, setRfInstance] = useState<any>(null);
   const [openSaveDialog, setOpenSaveDialog] = useState(false);
@@ -317,7 +350,7 @@ const Mindmap = ({ isFullScreen }: MindmapProps) => {
         connectionLineType={ConnectionLineType.Straight}
         fitView
         onNodeClick={(event, node) => {
-          console.log('onNodeClick', node);
+          // console.log('onNodeClick', node);
           setSelectedNode(node);
         }}
       >
@@ -386,10 +419,12 @@ const Mindmap = ({ isFullScreen }: MindmapProps) => {
                   <MenubarItem onClick={() => setOpenSaveDialog(true)}>
                     Save as new file
                   </MenubarItem>
-                  <MenubarItem onClick={() => {}} disabled={!currentFile}>
+                  {/* Here */}
+                  <MenubarItem onClick={handleExport}>
                     Export
                   </MenubarItem>
-                  <MenubarItem onClick={() => {}}>Import</MenubarItem>
+                  {/* <MenubarItem onClick={handleImport}>
+                    Import</MenubarItem> */}
                 </MenubarContent>
               </MenubarMenu>
               <MenubarMenu>
@@ -413,11 +448,11 @@ const Mindmap = ({ isFullScreen }: MindmapProps) => {
                   >
                     Show flashcards
                   </MenubarItem> */}
-                  <MenubarSeparator />
-                  <MenubarItem>Search</MenubarItem>
+                  {/* <MenubarSeparator /> */}
+                  {/* <MenubarItem>Search</MenubarItem> */}
                 </MenubarContent>
               </MenubarMenu>
-              <MenubarMenu>
+              {/* <MenubarMenu>
                 <MenubarTrigger>View</MenubarTrigger>
                 <MenubarContent>
                   <MenubarSub>
@@ -445,7 +480,7 @@ const Mindmap = ({ isFullScreen }: MindmapProps) => {
                     Show Minimap
                   </MenubarCheckboxItem>
                 </MenubarContent>
-              </MenubarMenu>
+              </MenubarMenu> */}
             </Menubar>
             {openSaveDialog && (
               <SaveFileDialog

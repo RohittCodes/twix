@@ -120,7 +120,7 @@ export default function NodeDetail() {
 
   // console.log(process.env.NEXT_PUBLIC_GOOGLE_API_KEY)
 
-  console.log(selectedNode?.data.label);
+  // console.log(selectedNode?.data.label);
 
   const handleSuggestions = async () => {
     if (!selectedNode || !selectedNode.data || !selectedNode?.data.label) {
@@ -133,7 +133,7 @@ export default function NodeDetail() {
     try {
       const model = genai.getGenerativeModel({ model: "gemini-pro" });
       const res = await model.generateContent(`The current phase of my idea is: ${selectedNode?.data.label}. I want to generate further phases of this idea.`);
-      console.log(res);
+      // console.log(res);
       if (res && res.response) {
         const response = res.response;
         // console.log(response.text());
