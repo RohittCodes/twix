@@ -132,7 +132,7 @@ export default function NodeDetail() {
     
     try {
       const model = genai.getGenerativeModel({ model: "gemini-pro" });
-      const res = await model.generateContent(`The current phase of my idea is: ${selectedNode?.data.label}. I want to generate further phases of this idea.`);
+      const res = await model.generateContent(`The current phase of my idea is: ${selectedNode?.data.label}. I want to generate further phases of this idea. Phases must be parallel to the current phase and provide a little context to it. Don't generate the child phases of any phase.`);
       // console.log(res);
       if (res && res.response) {
         const response = res.response;

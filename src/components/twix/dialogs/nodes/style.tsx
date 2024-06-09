@@ -106,8 +106,9 @@ export default function NodeStyleDialog({
                 )}
                 Random
               </Button>
-              {defaultBackgrounds.map((color) => (
+              {defaultBackgrounds.map((color, i) => (
                 <Button
+                  key={i}
                   size={'sm'}
                   variant={
                     state.background === color.value ? 'default' : 'outline'
@@ -152,8 +153,9 @@ export default function NodeStyleDialog({
                 )}
                 Random
               </Button>
-              {defaultColors.map((color) => (
+              {defaultColors.map((color, i) => (
                 <Button
+                key={i}
                   size={'sm'}
                   variant={state.color === color.value ? 'default' : 'outline'}
                   onClick={() => {

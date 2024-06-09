@@ -35,7 +35,7 @@ export default function SaveFileDialog({ onSave, onClose }: SaveDialogProps) {
         <DialogHeader>
           <DialogTitle>Edit file</DialogTitle>
           <DialogDescription>
-            Make changes to your file here. Click save when you're done.
+            Make changes to your file here. Click save when you&apos;re done.
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4">
