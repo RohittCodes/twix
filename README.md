@@ -12,6 +12,8 @@ Twix is a simple, yet effective tool for mind mapping you ideas into a visual re
 - [Contributing](#contributing)
 - [License](#license)
 
+  
+
 ## Features
 
 - Create mind maps with nodes and connections
