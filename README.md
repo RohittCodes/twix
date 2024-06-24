@@ -92,7 +92,7 @@ Twix is a simple, yet effective tool for mind mapping you ideas into a visual re
 9. Celebrate your contribution!
 10. If you find any bugs or have any feature requests, please create an `issue`.
 
-11. ## Contributors
+## Contributors
 
 - [RohittCodes](https://github.com/RohittCodes)
 - [iamaburrasheed](https://github.com/iamabdurrasheed)
