@@ -98,6 +98,7 @@ Twix is a simple, yet effective tool for mind mapping you ideas into a visual re
 
 - [RohittCodes](https://github.com/RohittCodes)
 - [iamaburrasheed](https://github.com/iamabdurrasheed)
+- [7monish0](https://github.com/7monish0)
 
 ## License
 
